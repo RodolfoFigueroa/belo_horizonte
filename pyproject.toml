@@ -5,11 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "dowhy>=0.14",
     "earthengine-api>=1.7.1",
     "geemap>=0.36.6",
     "geopandas>=1.1.1",
     "ipykernel<7",
     "matplotlib>=3.10.7",
+    "networkx>=3.6",
     "psmpy>=0.3.16",
     "rasterio>=1.4.3",
     "seaborn>=0.13.2",
