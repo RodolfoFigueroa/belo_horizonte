@@ -217,3 +217,5 @@ __marimo__/
 
 # Extra
 *.gpkg
+.DS_Store
+figures/
