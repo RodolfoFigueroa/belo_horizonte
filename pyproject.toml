@@ -13,6 +13,7 @@ dependencies = [
     "ipykernel<7",
     "matplotlib>=3.10.7",
     "networkx>=3.6",
+    "openpyxl>=3.1.5",
     "psmpy>=0.3.16",
     "rasterio>=1.4.3",
     "seaborn>=0.13.2",
