@@ -11,10 +11,7 @@ def load_bounds(data_path: os.PathLike) -> ee.geometry.Geometry:
 
     df_bounds = (
         gpd.read_file(
-            data_path
-            / "Areas de intervencion"
-            / "Mancha Urbana"
-            / "MANCHA_URBANA_2018",
+            data_path / "MANCHA_URBANA_2018.zip",
         )
         .pipe(lambda df: df.to_crs(df.estimate_utm_crs()))
         .explode()

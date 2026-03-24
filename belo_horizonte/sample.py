@@ -15,10 +15,7 @@ def sample_elevation(df_samples: gpd.GeoDataFrame, data_path: os.PathLike) -> pd
 
     df_level = (
         gpd.read_file(
-            data_path
-            / "Areas de intervencion"
-            / "Altimetria_MDT"
-            / "CURVA_DE_NIVEL_5M",
+            data_path / "CURVA_DE_NIVEL_5M.zip",
         )
         .pipe(lambda df: df.to_crs(df_samples.crs))
         .filter(["COTA", "geometry"])
@@ -97,10 +94,7 @@ def sample_lots(
 
     df_lots = (
         gpd.read_file(
-            data_path
-            / "Areas de intervencion"
-            / "Uso y Ocupacion de Suelo"
-            / "TIPOLOGIA_USO_OCUPACAO_LOTE_2022",
+            data_path / "TIPOLOGIA_USO_OCUPACAO_LOTE_2022.zip",
         )
         .to_crs(crs)
         .query("TIPOLOGIA_ != 'SEM INFORMACAO'")
