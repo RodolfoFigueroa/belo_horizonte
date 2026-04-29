@@ -19,6 +19,7 @@ dependencies = [
     "pip-system-certs>=5.3",
     "psmpy>=0.3.16",
     "rasterio>=1.4.3",
+    "scikit-learn>=1.7.2",
     "seaborn>=0.13.2",
 ]
 

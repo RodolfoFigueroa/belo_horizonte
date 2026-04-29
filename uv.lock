@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.13'",
@@ -200,6 +200,7 @@ dependencies = [
     { name = "pip-system-certs" },
     { name = "psmpy" },
     { name = "rasterio" },
+    { name = "scikit-learn" },
     { name = "seaborn" },
 ]
 
@@ -219,6 +220,7 @@ requires-dist = [
     { name = "pip-system-certs", specifier = ">=5.3" },
     { name = "psmpy", specifier = ">=0.3.16" },
     { name = "rasterio", specifier = ">=1.4.3" },
+    { name = "scikit-learn", specifier = ">=1.7.2" },
     { name = "seaborn", specifier = ">=0.13.2" },
 ]
 
