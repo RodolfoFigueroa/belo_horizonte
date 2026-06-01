@@ -1,12 +1,33 @@
 import os
 from pathlib import Path
+from typing import Literal, overload
 
 import ee
 import geemap
 import geopandas as gpd
 
 
-def load_bounds(data_path: os.PathLike) -> ee.geometry.Geometry:
+@overload
+def load_bounds(
+    data_path: os.PathLike,
+    *,
+    return_geometry: Literal[False] = False,
+) -> ee.Geometry: ...
+
+
+@overload
+def load_bounds(
+    data_path: os.PathLike,
+    *,
+    return_geometry: Literal[True] = True,
+) -> tuple[ee.Geometry, gpd.GeoDataFrame]: ...
+
+
+def load_bounds(
+    data_path: os.PathLike,
+    *,
+    return_geometry: bool = False,
+) -> ee.Geometry | tuple[ee.Geometry, gpd.GeoDataFrame]:
     data_path = Path(data_path)
 
     df_bounds = (
@@ -23,4 +44,7 @@ def load_bounds(data_path: os.PathLike) -> ee.geometry.Geometry:
         .to_crs("EPSG:4326")
     )
 
-    return geemap.geopandas_to_ee(df_bounds).first().geometry()  # pyright: ignore[reportAttributeAccessIssue]
+    bounds_ee = geemap.geopandas_to_ee(df_bounds).first().geometry()  # pyright: ignore[reportAttributeAccessIssue]
+    if return_geometry:
+        return bounds_ee, df_bounds
+    return bounds_ee
